@@ -1,0 +1,15 @@
+<h1>Add article</h1>
+
+<div style="margin-bottom: 20px;">
+  <input type="text" [(ngModel)]="article.title" placeholder="Add title..." style="width: 100%;height: 60px;">
+</div>
+
+<div>
+  <textarea [(ngModel)]="article.body" rows="10" placeholder="Add text..." style="width: 100%;"></textarea>
+</div>
+
+<div style="margin-bottom: 20px;text-align: right;">
+  <button color="primary" md-raised-button style="outline: none;" (click)="addArticle()" [disabled]="!article.body.length || !article.title.length">Add</button>
+</div>
+
+

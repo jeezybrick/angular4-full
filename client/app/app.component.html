@@ -1,0 +1,84 @@
+<md-sidenav-container>
+
+  <md-sidenav #sidenav class="example-sidenav">
+    <md-list>
+      <md-list-item>
+          <span>
+            <a [routerLink]=" ['./home']"
+               routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="sidenav.close()">
+              Home
+            </a>
+          </span>
+      </md-list-item>
+
+      <md-list-item>
+          <span>
+            <a [routerLink]=" ['./product']"
+               routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="sidenav.close()">
+              Products
+            </a>
+          </span>
+      </md-list-item>
+    </md-list>
+  </md-sidenav>
+
+<md-toolbar color="primary" style="">
+
+  <button md-button class="md-icon-button hidden-lg hidden-md" aria-label="Menu" (click)="sidenav.open()" style="display: none;">
+    <md-icon>menu</md-icon>
+  </button>
+
+  <span>
+    <a routerLink="/" class="nav-item nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+        <i class="fa fa-home"></i> Home
+      </a>
+  </span>
+
+  <span>
+    <a routerLink="/cats" class="nav-item nav-link" routerLinkActive="active">
+        <i class="fa fa-list"></i> Cats
+      </a>
+  </span>
+
+  <span>
+    <a routerLink="/blogs" class="nav-item nav-link" routerLinkActive="active">
+          <i class="fa fa-list"></i> Blogs
+      </a>
+  </span>
+
+  <span>
+    <a routerLink="/admin" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn && auth.isAdmin">
+        <i class="fa fa-lock"></i> Admin
+      </a>
+  </span>
+  <span class="spacer"></span>
+  <span>
+    <a routerLink="/account" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+        <i class="fa fa-user"></i>
+    </a>
+  </span>
+  <span>
+    <a routerLink="/login" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
+        <i class="fa fa-sign-in"></i> Sign in
+      </a>
+  </span>
+
+  <span>
+    <a routerLink="/register" class="nav-item nav-link" routerLinkActive="active" *ngIf="!auth.loggedIn">
+        <i class="fa fa-user-plus"></i>Sign up
+      </a>
+  </span>
+
+  <span>
+    <a routerLink="/logout" class="nav-item nav-link" routerLinkActive="active" *ngIf="auth.loggedIn">
+        <i class="fa fa-sign-out"></i>
+      </a>
+  </span>
+
+</md-toolbar>
+
+
+<router-outlet></router-outlet>
+
+  <!-- primary content -->
+</md-sidenav-container>
